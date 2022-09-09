@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float Hp = 3;
+    [SerializeField] private float Hp = 3;
     
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Death")
+        if(other.gameObject.CompareTag("Death"))
         {
             Hp -= 1;
             Debug.Log("-1HP");
 
-            if(Hp < 0)
+            if(Hp <= 0)
             {
                 Debug.Log("YOU LOST");
                 Death();
-
             }
 
         }
-        
     }
     private void Update()
     {

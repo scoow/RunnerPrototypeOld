@@ -7,7 +7,7 @@ public class Move : MonoBehaviour
     [SerializeField] float speedmove = 8f;
     [SerializeField] float forceJamp = 8f;
     [SerializeField] bool onGround = false;
-    [SerializeField] Rigidbody rb;
+    Rigidbody rb;
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class Move : MonoBehaviour
 
     void PlayerControl()
     {
-        transform.Translate(Vector3.forward * speedmove * Time.deltaTime);
+        transform.Translate(speedmove * Time.deltaTime * Vector3.forward);
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
@@ -41,11 +41,11 @@ public class Move : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * speedmove * Time.deltaTime);
+            transform.Translate(speedmove * Time.deltaTime * Vector3.forward);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * speedmove * Time.deltaTime);
+            transform.Translate(speedmove * Time.deltaTime * Vector3.forward);
         }
     }
 }

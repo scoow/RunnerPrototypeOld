@@ -5,27 +5,29 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     public GameObject[] tilePrefabs;
-    private List<GameObject> activeTiles = new List<GameObject>();
+    private readonly List<GameObject> activeTiles = new();
     private float spawnPos = 0;
-    private float tileLength = 45;
-
+    [SerializeField] private float tileLength = 45;
 
     [SerializeField] private Transform player;
-    [SerializeField] private int startTiles = 6;
-
+    [SerializeField] private int startTilesCount = 2;
 
     void Start()
     {
-        for (int i = 0; i < startTiles; i++)
+        LevelInitialization();
+    }
+
+    private void LevelInitialization()
+    {
+        for (int i = 0; i < startTilesCount; i++)
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
         }
     }
 
-
     void Update()
     {
-        if (player.position.z - 45 > spawnPos - (startTiles * tileLength))
+        if (player.position.z - 45 > spawnPos - (startTilesCount * tileLength))
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
             DeleteTile();
