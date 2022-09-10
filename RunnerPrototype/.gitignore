@@ -26,9 +26,6 @@
 # Plugins
 /[Aa]ssets/Plugins/
 
-# Library
-/[Ll]ibrary/*
-
 # Visual Studio cache directory
 .vs/
 
