@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private int _score;
     public int _hp;
-    private int _gameTimer;
+    private float _gameTimer;
 
     private void Awake()
     {
@@ -46,16 +46,32 @@ public class GameManager : MonoBehaviour
     }
     private void ResetGameTimer()
     {
-        _gameTimer = 0;
+        _gameTimer = 100;
+        _gameTimerText.text = "Time " + _gameTimer.ToString();
     }
 
     public void DecreaseHP()
     {
         _hp--;
         _hpText.text = "HP " + _hp.ToString();
+        if (_hp <= 0)
+            GameOver();
     }
-  /*  public string GetGameTimer()
+
+    public void DecreaseTimer()
     {
-        return _gameTimer.ToString();
-    }*/
+        _gameTimer -= Time.deltaTime;
+        _gameTimerText.text = "Time " + _gameTimer.ToString();
+    }
+
+    private void Update()
+    {
+        DecreaseTimer();
+    }
+
+    public void GameOver()
+    {
+        //Destroy(gameObject);
+        UnityEditor.EditorApplication.isPaused = true;
+    }
 }

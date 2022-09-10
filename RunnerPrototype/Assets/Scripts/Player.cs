@@ -29,13 +29,15 @@ public class Player : MonoBehaviour
         onGround = false;
     }
 
+
+
     void PlayerControl()
     {
         transform.Translate(speedmove * Time.deltaTime * Vector3.forward);
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            rb.AddForce(Vector3.up * forceJamp, ForceMode.VelocityChange);
+            Jump();
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -46,5 +48,10 @@ public class Player : MonoBehaviour
         {
             transform.Translate(speedmove * Time.deltaTime * Vector3.left);
         }
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(Vector3.up * forceJamp, ForceMode.VelocityChange);
     }
 }
