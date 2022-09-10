@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float Hp = 3;
-    
+    //[SerializeField] public float Hp = 3;
+   // public float Hp = 3;
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Death"))
+        Fire fire = other.GetComponent<Fire>();
+        if (fire != null)
         {
-            Hp -= 1;
+            GameManager.instance.DecreaseHP();
             Debug.Log("-1HP");
 
-            if(Hp <= 0)
+            if(GameManager.instance._hp <= 0)
             {
                 Debug.Log("YOU LOST");
                 Death();
@@ -24,15 +26,15 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-        if(transform.position.y <= -2)
+       /* if(transform.position.y <= -2)
         {
             Death();
-        }
+        }*/
     }
 
     private void Death()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
         UnityEditor.EditorApplication.isPaused = true;
     }
 }
