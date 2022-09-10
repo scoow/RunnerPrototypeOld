@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8837001690424692658}
   - component: {fileID: 718836070871143861}
   - component: {fileID: 8102516056651271439}
-  - component: {fileID: 9130087976876516507}
+  - component: {fileID: 5185937338033245203}
   m_Layer: 0
   m_Name: "\u0422\u0440\u0438\u0433\u0433\u0435\u0440 \u043D\u0430 \u043F\u0440\u044B\u0436\u043E\u043A"
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9130087976876516507
+--- !u!114 &5185937338033245203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,6 +107,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2917197584187048153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d68792ef27bc6343b29221c5d2f988b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9249c10d8cc224fb04a59d9885d18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -10,8 +10,8 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Fire fire = other.GetComponent<Fire>();
-        if (fire != null)
+        TriggerComponent triggerComponent = other.GetComponent<TriggerComponent>();
+        if (triggerComponent != null) // 
         {
             GameManager.instance.DecreaseHP();
             Debug.Log("-1HP");
